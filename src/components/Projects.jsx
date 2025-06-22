@@ -1,7 +1,7 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
-import employeeMSImage from "../assets/employee-ms.png";
-import bookMSImage from "../assets/poto diri.jpg";
+import employeeMSImage from "../assets/rafi.png";
+import bookMSImage from "../assets/rafi.png";
 
 const projects = [
   {

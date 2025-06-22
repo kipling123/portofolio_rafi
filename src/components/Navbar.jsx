@@ -19,15 +19,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 60) {
-        // Scroll ke bawah
-        setShowNavbar(false);
-      } else {
-        // Scroll ke atas
-        setShowNavbar(true);
-      }
-
+      setShowNavbar(currentScrollY < lastScrollY || currentScrollY < 60);
       setLastScrollY(currentScrollY);
     };
 
@@ -37,30 +29,33 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`bg-white text-gray-900 shadow-md fixed w-full z-50 transition-transform duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-transform duration-500 ${
         showNavbar ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24 py-4 flex justify-between items-center">
         {/* Brand */}
-        <a href="#home" className="text-2xl font-bold bg-gradient-to-r from-green-400 to-blue-500 text-transparent bg-clip-text">
+        <a
+          href="#home"
+          className="text-2xl font-bold bg-gradient-to-r from-green-400 to-blue-500 text-transparent bg-clip-text"
+        >
           Rafi Ikbar Fahrezy
         </a>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden md:flex items-center space-x-8">
           {menuItems.map((item, idx) => (
             <a
               key={idx}
               href={item.href}
-              className="hover:text-blue-500 transition-colors font-medium"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-200 hover:underline underline-offset-4"
             >
               {item.label}
             </a>
           ))}
           <a
             href="#contact"
-            className="bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-full font-semibold hover:scale-105 transition-transform"
+            className="bg-gradient-to-r from-green-400 to-blue-500 text-white px-5 py-2 rounded-full font-semibold shadow-md hover:scale-105 transition-transform duration-300"
           >
             Connect Me
           </a>
@@ -77,27 +72,29 @@ const Navbar = () => {
 
       {/* Mobile Dropdown */}
       <div
-        className={`md:hidden bg-white px-6 py-4 space-y-4 shadow-md transition-all duration-300 ease-in-out ${
-          isOpen ? 'block' : 'hidden'
+        className={`md:hidden px-6 py-4 bg-white transition-all duration-300 ease-in-out origin-top ${
+          isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'
         }`}
       >
-        {menuItems.map((item, idx) => (
+        <div className="space-y-4">
+          {menuItems.map((item, idx) => (
+            <a
+              key={idx}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className="block text-gray-800 font-medium hover:text-blue-500 transition-all"
+            >
+              {item.label}
+            </a>
+          ))}
           <a
-            key={idx}
-            href={item.href}
+            href="#contact"
             onClick={() => setIsOpen(false)}
-            className="block text-gray-800 font-medium hover:text-blue-500 transition"
+            className="inline-block bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-full font-semibold mt-2"
           >
-            {item.label}
+            Connect Me
           </a>
-        ))}
-        <a
-          href="#contact"
-          className="inline-block bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-full font-semibold"
-          onClick={() => setIsOpen(false)}
-        >
-          Connect Me
-        </a>
+        </div>
       </div>
     </nav>
   );
