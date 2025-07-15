@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroImage from '../assets/poto diri.jpg';
 import { motion } from 'framer-motion';
-import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaEnvelope, FaFilePdf } from 'react-icons/fa'; // Import FaFilePdf
 
 const Hero = () => {
   return (
@@ -51,13 +51,24 @@ const Hero = () => {
         </a>
 
         <a
-          href="https://www.linkedin.com/in/rafi-ikbar-fahrezy" // Ganti dengan LinkedIn kamu atau file CV di /public
+          href="https://www.linkedin.com/in/rafi-ikbar-fahrezy" // Replace with your LinkedIn URL if different
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-semibold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition"
         >
           <FaLinkedin className="text-lg" />
-          Resume
+          LinkedIn
+        </a>
+
+        {/* New "View CV" button */}
+        <a
+          href="/Rafi_Ikbar_Fahrezy_CV.pdf" // Make sure your CV (e.g., Rafi_Ikbar_Fahrezy_CV.pdf) is in the /public folder
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-semibold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition"
+        >
+          <FaFilePdf className="text-lg" />
+          View CV
         </a>
       </motion.div>
     </div>

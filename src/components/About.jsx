@@ -28,12 +28,13 @@ const About = () => {
             {/* Skill Bars */}
             <div className="space-y-4">
               {[
-                { label: "Python", width: "11/12" },
-                { label: "Machine Learning", width: "11/12" },
-                { label: "Deep Learning", width: "10/12" },
-                { label: "React JS", width: "10/12" },
-                { label: "Node JS", width: "9/12" },
-                { label: "SQL & NoSQL", width: "9/12" },
+                { label: "Python", width: "6/12" },
+                { label: "Machine Learning", width: "3/12" },
+                { label: "Deep Learning", width: "3/12" },
+                { label: "React", width: "5/12" },
+                { label: "Node JS", width: "1/12" },
+                { label: "MySQL", width: "3/12" },
+                { label: "Golang", width: "7/12" },
               ].map((skill, index) => (
                 <div key={index} className="flex items-center">
                   <label className="w-3/12 text-sm font-medium">{skill.label}</label>
@@ -50,8 +51,8 @@ const About = () => {
             <div className="mt-12 flex justify-center md:justify-start gap-12 text-center">
               {[
                 { value: "2+", label: "Years Experience" },
-                { value: "50+", label: "Projects Completed" },
-                { value: "10+", label: "ML/AI Use Cases" },
+                { value: "22+", label: "Projects Completed" },
+                { value: "3+", label: "ML/AI Use Cases" },
               ].map((stat, i) => (
                 <div key={i}>
                   <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
